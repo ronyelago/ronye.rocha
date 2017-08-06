@@ -14,7 +14,8 @@ namespace ControleEstoque.Web.Controllers
             new GrupoProdutoModel { Id = 1, Nome = "Laticínios", Ativo = true },
             new GrupoProdutoModel { Id = 2, Nome = "Ervas", Ativo = true },
             new GrupoProdutoModel { Id = 3, Nome = "Infantil", Ativo = true },
-            new GrupoProdutoModel { Id = 4, Nome = "Jardinagem", Ativo = true }
+            new GrupoProdutoModel { Id = 4, Nome = "Jardinagem", Ativo = true },
+            new GrupoProdutoModel { Id = 5, Nome = "Ferramentas", Ativo = true }
         };
 
         [HttpPost]
