@@ -156,15 +156,19 @@
 
         // Cria uma nova linha para a grid
         function criarLinhaGrid(dados) {
-
             var ret =
                 '<tr data-id=' + dados.Id + '>' +
-                '<td>' + dados.Nome + '</td>' +
-                '<td>' + (dados.Ativo ? 'Ativo' : 'Inativo') + '</td>' +
-                '<td>' +
-                '<a class="btn btn-primary btn-alterar" role="button" style="margin-right: 3px"><i class="glyphicon glyphicon-pencil"></i> Alterar</a>' +
-                '<a class="btn btn-danger btn-excluir" role="button"><i class="glyphicon glyphicon-trash"></i> Excluir</a>' +
-                '</td>' +
+                    '<td>' + dados.Id + '</td>' +
+                    '<td>' + dados.Nome + '</td>' +
+                    '<td>' + (dados.Ativo ? 'Ativo' : 'Inativo') + '</td>' +
+                    '<td>' +
+                        '<a class="btn btn-primary btn-alterar" role="button">'+
+                            '<i class="glyphicon glyphicon-pencil"> Alterar</i>'+
+                        '</a> '+
+                        '<a class="btn btn-danger btn-excluir" role="button">'+
+                            '<i class="glyphicon glyphicon-trash"> Deletar</i>'+
+                        '</a>'+
+                    '</td>' +
                 '</tr>';
 
             return ret;
