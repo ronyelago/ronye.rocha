@@ -9,18 +9,11 @@ namespace ControleEstoque.Web.Controllers
 {
     public class CadastroController : Controller
     {
-        private static List<GrupoProdutoModel> lista = new List<GrupoProdutoModel>()
-        {
-            new GrupoProdutoModel { Id = 1, Nome = "Laticínios", Ativo = true },
-            new GrupoProdutoModel { Id = 2, Nome = "Ervas", Ativo = true },
-            new GrupoProdutoModel { Id = 3, Nome = "Infantil", Ativo = true },
-            new GrupoProdutoModel { Id = 4, Nome = "Jardinagem", Ativo = true },
-            new GrupoProdutoModel { Id = 5, Nome = "Ferramentas", Ativo = true }
-        };
+        private StockEntities stock = new StockEntities();
 
         [HttpPost]
         [Authorize]
-        public ActionResult SalvarGrupoProduto(GrupoProdutoModel model)
+        public ActionResult SalvarCategoriaProduto(CategoriaProduto cp)
         {
             string resultado = "OK";
             List<string> mensagens = new List<string>();
@@ -35,25 +28,29 @@ namespace ControleEstoque.Web.Controllers
             {
                 try
                 {
-                    var gp = lista.Find(x => x.Id == model.Id);
+                    // Verifica se a categoria já existe
+                    var c = stock.CategoriaProduto.FirstOrDefault(x => x.Id == cp.Id);
 
-                    if (gp == null)
+                    // Se não existe, adiciona e salva (create)
+                    if (c == null)
                     {
-                        gp = model;
-                        gp.Id = lista.Max(x => x.Id) + 1;
-                        lista.Add(gp);
+                        c = cp;
+                        stock.CategoriaProduto.Add(c);
+                        stock.SaveChanges();
                     }
+                    // Se existe, salva somente as alterações (update)
                     else
                     {
-                        gp.Nome = model.Nome;
-                        gp.Ativo = model.Ativo;
+                        c.Nome = cp.Nome;
+                        c.Estado = cp.Estado;
+                        stock.SaveChanges();
                     }
 
-                    idSalvo = gp.Id.ToString();
+                    idSalvo = c.Id.ToString();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    resultado = "ERRO";
+                    resultado = "ERRO: " + ex.Message;
                 }
 
 
@@ -64,15 +61,16 @@ namespace ControleEstoque.Web.Controllers
 
         [HttpPost]
         [Authorize]
-        public ActionResult ExcluirGrupoProduto(int id)
+        public ActionResult ExcluirCategoriaProduto(int id)
         {
             bool found = false;
-            GrupoProdutoModel gp = lista.First(x => x.Id == id);
+            var cp = stock.CategoriaProduto.First(x => x.Id == id);
 
-            if (gp != null)
+            if (cp != null)
             {
                 found = true;
-                lista.Remove(gp);
+                stock.CategoriaProduto.Remove(cp);
+                stock.SaveChanges();
             }
 
             return Json(found);
@@ -81,14 +79,16 @@ namespace ControleEstoque.Web.Controllers
         [Authorize]
         public ActionResult GrupoProduto()
         {
-            return View(lista);
+            return View(stock.CategoriaProduto.ToList());
         }
 
         [HttpPost]
         [Authorize]
         public ActionResult RecuperarGrupoProduto(int id)
         {
-            return Json(lista.Find(x => x.Id == id));
+            CategoriaProduto cp = stock.CategoriaProduto.First(x => x.Id == id);
+
+            return Json(cp);
         }
 
         [Authorize]

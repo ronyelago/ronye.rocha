@@ -19,6 +19,6 @@ namespace ControleEstoque.Web.Models
 
         [Required(ErrorMessage = "O campo Nome é obrigatório.")]
         public string Nome { get; set; }
-        public Nullable<bool> Estado { get; set; }
+        public bool Estado { get; set; }
     }
 }

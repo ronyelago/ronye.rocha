@@ -1,4 +1,4 @@
-﻿@model List<ControleEstoque.Web.Models.GrupoProdutoModel>
+﻿@model List<ControleEstoque.Web.Models.CategoriaProduto>
 @{ ViewBag.Title = "Cadastro de Grupo de Produtos";}
 
 <style>
@@ -62,7 +62,7 @@
                                    
                         @foreach (var p in Model)
                         {
-                            var status = (p.Ativo ? "Ativo" : "Inativo");
+                            var status = ((bool)p.Estado ? "Ativo" : "Inativo");
                            
                             <tr data-id="@p.Id">
                                 <td>@p.Id</td>
@@ -131,7 +131,7 @@
         function formOpen(dados) {
             $('#id-cadastro').val(dados.Id)
             $('#txt_nome').val(dados.Nome)
-            $('#ativo').prop('checked', dados.Ativo)
+            $('#ativo').prop('checked', dados.Estado)
 
             var modal_cadastro = $('#modal-cadastro');
 
@@ -160,7 +160,7 @@
                 '<tr data-id=' + dados.Id + '>' +
                     '<td>' + dados.Id + '</td>' +
                     '<td>' + dados.Nome + '</td>' +
-                    '<td>' + (dados.Ativo ? 'Ativo' : 'Inativo') + '</td>' +
+                    '<td>' + (dados.Estado ? 'Ativo' : 'Inativo') + '</td>' +
                     '<td>' +
                         '<a class="btn btn-primary btn-alterar" role="button">'+
                             '<i class="glyphicon glyphicon-pencil"> Alterar</i>'+
@@ -207,7 +207,7 @@
             var btn = $(this);
             var tr = btn.closest('tr');
             var id = tr.attr('data-id');
-            var url = '@Url.Action("ExcluirGrupoProduto", "Cadastro")';
+            var url = '@Url.Action("ExcluirCategoriaProduto", "Cadastro")';
             var param = { 'id': id };
 
             bootbox.confirm({
@@ -236,11 +236,11 @@
         .on('click', '#btn-salvar', function () {
 
             var btn = $(this);
-            var url = '@Url.Action("SalvarGrupoProduto", "Cadastro")';
+            var url = '@Url.Action("SalvarCategoriaProduto", "Cadastro")';
             var param = {
                     Id: $('#id-cadastro').val(),
                     Nome: $('#txt_nome').val(),
-                    Ativo: $('#ativo').prop('checked')
+                    Estado: $('#ativo').prop('checked')
                 };
 
             $.post(url, param, function (response) {
@@ -255,7 +255,7 @@
                         var linha = $('#grid_cadastro').find('tr[data-id=' + param.Id + ']').find('td');
                         linha
                             .eq(1).html(param.Nome).end()
-                            .eq(2).html(param.Ativo ? 'Ativo' : 'Inativo');
+                            .eq(2).html(param.Estado ? 'Ativo' : 'Inativo');
                     }
 
                     $('#modal-cadastro').parents('.bootbox').modal('hide');
