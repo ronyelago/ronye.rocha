@@ -27,5 +27,6 @@ namespace ControleEstoque.Web.Models
     
         public virtual DbSet<CategoriaProduto> CategoriaProduto { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Fornecedor> Fornecedor { get; set; }
     }
 }
