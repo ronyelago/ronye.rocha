@@ -194,7 +194,7 @@
 
             var btn = $(this);
             var id = btn.closest('tr').attr('data-id');
-            var url = '@Url.Action("RecuperarGrupoProduto", "Cadastro")';
+            var url = '@Url.Action("RecuperarGrupoProduto", "CategoriaProduto")';
             var param = { 'id': id };
 
             $.post(url, param, function (response) {
@@ -207,7 +207,7 @@
             var btn = $(this);
             var tr = btn.closest('tr');
             var id = tr.attr('data-id');
-            var url = '@Url.Action("ExcluirCategoriaProduto", "Cadastro")';
+            var url = '@Url.Action("ExcluirCategoriaProduto", "CategoriaProduto")';
             var param = { 'id': id };
 
             bootbox.confirm({
@@ -236,7 +236,7 @@
         .on('click', '#btn-salvar', function () {
 
             var btn = $(this);
-            var url = '@Url.Action("SalvarCategoriaProduto", "Cadastro")';
+            var url = '@Url.Action("SalvarCategoriaProduto", "CategoriaProduto")';
             var param = {
                     Id: $('#id-cadastro').val(),
                     Nome: $('#txt_nome').val(),
