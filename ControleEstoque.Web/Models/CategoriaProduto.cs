@@ -11,14 +11,11 @@ namespace ControleEstoque.Web.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class CategoriaProduto
     {
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "O campo Nome é obrigatório.")]
         public string Nome { get; set; }
-        public bool Estado { get; set; }
+        public Nullable<bool> Estado { get; set; }
     }
 }

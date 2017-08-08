@@ -171,7 +171,6 @@
     <Compile Include="Models\CategoriaProduto.cs">
       <DependentUpon>StockEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GrupoProdutoModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\StockEntities.Context.cs">
       <AutoGen>True</AutoGen>
