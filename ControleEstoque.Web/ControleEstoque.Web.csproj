@@ -159,8 +159,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriaProdutoController.cs" />
-    <Compile Include="Controllers\CategoriaProdutoesController.cs" />
     <Compile Include="Controllers\ContaController.cs" />
+    <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\GraficoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OperacaoController.cs" />
@@ -251,17 +251,16 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Cadastro\GrupoProduto.cshtml" />
-    <Content Include="Views\Cadastro\MarcaProduto.cshtml" />
-    <Content Include="Views\Cadastro\LocalProduto.cshtml" />
-    <Content Include="Views\Cadastro\UnidadeMedida.cshtml" />
-    <Content Include="Views\Cadastro\Produto.cshtml" />
-    <Content Include="Views\Cadastro\Pais.cshtml" />
-    <Content Include="Views\Cadastro\Estado.cshtml" />
-    <Content Include="Views\Cadastro\Cidade.cshtml" />
-    <Content Include="Views\Cadastro\Fornecedor.cshtml" />
-    <Content Include="Views\Cadastro\PerfilUsuario.cshtml" />
-    <Content Include="Views\Cadastro\Usuario.cshtml" />
+    <Content Include="Views\CategoriaProduto\GrupoProduto.cshtml" />
+    <Content Include="Views\CategoriaProduto\MarcaProduto.cshtml" />
+    <Content Include="Views\CategoriaProduto\LocalProduto.cshtml" />
+    <Content Include="Views\CategoriaProduto\UnidadeMedida.cshtml" />
+    <Content Include="Views\CategoriaProduto\Produto.cshtml" />
+    <Content Include="Views\CategoriaProduto\Pais.cshtml" />
+    <Content Include="Views\CategoriaProduto\Estado.cshtml" />
+    <Content Include="Views\CategoriaProduto\Cidade.cshtml" />
+    <Content Include="Views\CategoriaProduto\PerfilUsuario.cshtml" />
+    <Content Include="Views\CategoriaProduto\Usuario.cshtml" />
     <Content Include="Views\Relatorio\PosicaoEstoque.cshtml" />
     <Content Include="Views\Relatorio\Ressuprimento.cshtml" />
     <Content Include="Views\Grafico\PerdasMes.cshtml" />
@@ -271,10 +270,10 @@
     <Content Include="Views\Operacao\LancaPerda.cshtml" />
     <Content Include="Views\Operacao\Inventario.cshtml" />
     <Content Include="Views\Conta\Login.cshtml" />
+    <Content Include="Views\Fornecedor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\CategoriaProdutoes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

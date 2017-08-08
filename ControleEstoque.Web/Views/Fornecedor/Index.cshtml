@@ -1,0 +1,41 @@
+﻿@model List<ControleEstoque.Web.Models.Fornecedor>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Cidade</th>
+                    <th>País</th>
+                    <th>Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var f in Model)
+                {
+                    <tr>
+                        <td>@f.Id</td>
+                        <td>@f.Nome</td>
+                        <td>@f.Endereco</td>
+                        <td>@f.Cidade</td>
+                        <td>@f.Pais</td>
+                        <td>@f.Telefone</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
