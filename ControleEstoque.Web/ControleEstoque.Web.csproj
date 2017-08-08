@@ -158,7 +158,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CadastroController.cs" />
+    <Compile Include="Controllers\CategoriaProdutoController.cs" />
     <Compile Include="Controllers\CategoriaProdutoesController.cs" />
     <Compile Include="Controllers\ContaController.cs" />
     <Compile Include="Controllers\GraficoController.cs" />

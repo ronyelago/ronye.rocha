@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace ControleEstoque.Web.Controllers
 {
-    public class CadastroController : Controller
+    public class CategoriaProdutoController : Controller
     {
         private StockEntities stock = new StockEntities();
 
