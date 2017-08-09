@@ -48,36 +48,41 @@
 </div>
 
 
-<div id="novo-fornecedor" class="invisivel">
-    <h2>Cadastrar novo Fornecedor</h2>
-    <div>
-        <div>
-            @Html.Label("lbl_nome", "Nome:", new { @class = "col-md-3 control-label" })
-            @Html.TextBox("txt_nome", null, new { @class = "form-control" })
+<div id="modal-novo-fornecedor" class="form-horizontal invisivel" role="dialog">
+    <fieldset>
+        <h2>Cadastrar novo Fornecedor</h2>
+        <div class="row">
+            <div class="form-group">
+                <div>
+                    @Html.Label("lbl_nome", "Nome:", new { @class = "col-md-3 control-label" })
+                    @Html.TextBox("txt_nome", null, new { @class = "form-control" })
+                </div>
+                <div>
+                    @Html.Label("lbl_endereco", "Endereco", new { @class = "col-md-3 control-label" })
+                    @Html.TextBox("txt_endereco", null, new { @class = "form-control" })
+                </div>
+                <div>
+                    @Html.Label("lbl_cidade", "Cidade", new { @class = "col-md-3 control-label" })
+                    @Html.TextBox("txt_cidade", null, new { @class = "form-control" })
+                </div>
+                <div>
+                    @Html.Label("lbl_pais", "País", new { @class = "col-md-3 control-label" })
+                    @Html.TextBox("txt_cidade", null, new { @class = "form-control" })
+                </div>
+                <div>
+                    @Html.Label("lbl_telefone", "Telefone", new { @class = "col-md-3 control-label" })
+                    @Html.TextBox("txt_telefone", null, new { @class = "form-control" })
+                </div>
+            </div>
         </div>
-        <div>
-            @Html.Label("lbl_endereco", "Endereco", new { @class = "col-md-3 control-label" })
-            @Html.TextBox("txt_endereco", null, new { @class = "form-control" })
+        <div class="col-md-12">
+            <div class="form-group">
+                <a id="btn_cancelar" role="button" href="#" class="btn btn-danger"><i class="glyphicon glyphicon-remove"> Cancelar</i></a>
+                <a id="btn_salvar" role="button" href="#" class="btn btn-primary"><i class="glyphicon glyphicon-ok"> Salvar</i></a>
+            </div>
         </div>
-        <div>
-            @Html.Label("lbl_cidade", "Cidade", new { @class = "col-md-3 control-label" })
-            @Html.TextBox("txt_cidade", null, new { @class = "form-control" })
-        </div>
-        <div>
-            @Html.Label("lbl_pais", "País", new { @class = "col-md-3 control-label" })
-            @Html.TextBox("txt_cidade", null, new { @class = "form-control" })
-        </div>
-        <div>
-            @Html.Label("lbl_telefone", "Telefone", new { @class = "col-md-3 control-label" })
-            @Html.TextBox("txt_telefone", null, new { @class = "form-control" })
-        </div>
-    </div>
-    <div>
-        <a id="btn_cancelar" role="button" href="#" class="btn btn-danger"><i class="glyphicon glyphicon-remove"> Cancelar</i></a>
-        <a id="btn_salvar" role="button" href="#" class="btn btn-primary"><i class="glyphicon glyphicon-ok"> Salvar</i></a>
-    </div>
+    </fieldset>    
 </div>
-
 
 
 @section Scripts
@@ -94,7 +99,7 @@
     });
 
     function formOpen(dados) {
-        var novo = $('#novo-fornecedor');
+        var novo = $('#modal-novo-fornecedor');
         bootbox.dialog({
             message: novo
         })
