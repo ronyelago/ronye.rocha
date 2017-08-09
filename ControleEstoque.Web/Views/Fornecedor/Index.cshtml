@@ -1,41 +1,111 @@
 ﻿@model List<ControleEstoque.Web.Models.Fornecedor>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>View</title>
-</head>
-<body>
-    <div> 
-        <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Endereço</th>
-                    <th>Cidade</th>
-                    <th>País</th>
-                    <th>Telefone</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                @foreach (var f in Model)
-                {
-                    <tr>
-                        <td>@f.Id</td>
-                        <td>@f.Nome</td>
-                        <td>@f.Endereco</td>
-                        <td>@f.Cidade</td>
-                        <td>@f.Pais</td>
-                        <td>@f.Telefone</td>
-                    </tr>
-                }
-
-            </tbody>
-        </table>
+<div>
+    <div>
+        <h2>Fornecedores</h2>
     </div>
-</body>
-</html>
+    <div>
+        <a id="btn-incluir" class="btn btn-success" role="button">
+            <i class="glyphicon glyphicon-plus"> Novo...</i>
+        </a><br /><br />
+    </div>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Cidade</th>
+                <th>País</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var f in Model)
+            {
+                <tr>
+                    <td>@f.Id</td>
+                    <td>@f.Nome</td>
+                    <td>@f.Endereco</td>
+                    <td>@f.Cidade</td>
+                    <td>@f.Pais</td>
+                    <td>@f.Telefone</td>
+                    <td>
+                        <a class="btn btn-primary btn-alterar" role="button">
+                            <i class="glyphicon glyphicon-pencil"> Alterar</i>
+                        </a>
+                        <a class="btn btn-danger btn-excluir" role="button">
+                            <i class="glyphicon glyphicon-trash"> Deletar</i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+<div id="novo-fornecedor" class="invisivel">
+    <h2>Cadastrar novo Fornecedor</h2>
+    <div>
+        <div>
+            @Html.Label("lbl_nome", "Nome:", new { @class = "col-md-3 control-label" })
+            @Html.TextBox("txt_nome", null, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("lbl_endereco", "Endereco", new { @class = "col-md-3 control-label" })
+            @Html.TextBox("txt_endereco", null, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("lbl_cidade", "Cidade", new { @class = "col-md-3 control-label" })
+            @Html.TextBox("txt_cidade", null, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("lbl_pais", "País", new { @class = "col-md-3 control-label" })
+            @Html.TextBox("txt_cidade", null, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("lbl_telefone", "Telefone", new { @class = "col-md-3 control-label" })
+            @Html.TextBox("txt_telefone", null, new { @class = "form-control" })
+        </div>
+    </div>
+    <div>
+        <a id="btn_cancelar" role="button" href="#" class="btn btn-danger"><i class="glyphicon glyphicon-remove"> Cancelar</i></a>
+        <a id="btn_salvar" role="button" href="#" class="btn btn-primary"><i class="glyphicon glyphicon-ok"> Salvar</i></a>
+    </div>
+</div>
+
+
+
+@section Scripts
+{
+
+<script>
+
+    $(document).on('click', '.btn-alterar', function () {
+        formOpen({ a: 'a' });
+    });
+
+    $(document).on('click', '.btn-excluir', function () {
+        
+    });
+
+    function formOpen(dados) {
+        var novo = $('#novo-fornecedor');
+        bootbox.dialog({
+            message: novo
+        })
+        .on('shown.bs.modal', function () {
+            novo.show();
+        })
+        .on('hidden.bs.modal', function () {
+            novo.hide().appendTo('body');
+        })
+    }
+
+</script>
+
+}
