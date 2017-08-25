@@ -11,7 +11,7 @@ namespace ControleEstoque.Web.Models
     {
         public static bool UserValidate(string login, string senha)
         {
-            bool auth = false;
+            bool autho = false;
             string connectionString = @"Integrated Security=SSPI;Persist Security " +
                                        "Info=False;User ID='';Initial Catalog=Stock;Data Source=.;Initial " +
                                        "File Name=''";
